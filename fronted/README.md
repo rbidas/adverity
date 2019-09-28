@@ -1,216 +1,68 @@
-![react-starter](https://user-images.githubusercontent.com/33935506/36640446-894a1a78-1a27-11e8-970a-6cbf95d76799.png)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# React Starter
+## Available Scripts
 
-A basic template that consists of the essential elements that are required to start building a React (v16.4) application using Webpack (v4).
+In the project directory, you can run:
 
-The template consists of:
+### `npm start`
 
-* a typcial project layout structure
-* babel setup and configuration
-* webpack setup and configuration
-* eslint setup and configuration
-* SCSS setup and configuration
-* the main React components to get started
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Additionaly, the template provides a development and production webpack configuration.
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-The template also allows one to include specific plugins as part of build. [Please see here for more detail](#build-application-with-bundleanalayzer-plugin-included)
+### `npm test`
 
----
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Developed With
+### `npm run build`
 
-* [Node.js 8.11](https://nodejs.org/en/) - Javascript runtime
-* [React 16.4](https://reactjs.org/) - A javascript library for building user interfaces
-* [Babel 6.26](https://babeljs.io/) - A transpiler for javascript
-* [Webpack 4.x](https://webpack.js.org/) - A module bundler
-* [SCSS](http://sass-lang.com/) - A css metalanguage
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
----
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-## Related Projects
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-* [react-redux-starter]
+### `npm run eject`
 
-  A basic template that consists of the essential elements that are required to start building a Single Page Application using React, React Router, Redux, Bootstrap 4, Sass, and Webpack.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-* [react-clicker]
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-  A basic React app that allows one to increase, decrease, or reset a counter
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-* [react-clock-basic]
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-  A basic clock that displays the current date and time
+## Learn More
 
-* [react-timer-basic]
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-  A basic timer that will start a countdown based on an input of time in seconds
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-* [react-timer-advanced]
+### Code Splitting
 
-   A basic countdown timer that offers an advanced UI experience
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-* [react-masterminds]
+### Analyzing the Bundle Size
 
-  A basic game of guessing a number with varying degrees of difficulty
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-* [react-movie-cards]
+### Making a Progressive Web App
 
-  A basic application that displays a list of movies as a list of cards
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-* [react-calculator-standard]
+### Advanced Configuration
 
-  A calculator that provides the essential arithmetic operations, an expression builder, and a complete history of all expressions
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-* [react-bitcoin-monitor]
+### Deployment
 
-  An app that monitors changes in the Bitcoin Price Index (BPI)
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-* [react-weather-standard]
+### `npm run build` fails to minify
 
-  A weather application that displays the current weather, daily forecasts, and hourly forecasts based on your current geolocation
-
-* [react-redux-quotlify]
-
-  A quote browser and manager that allows one to search famous quotes and save them to a data store.
-
----
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-### Prerequisites
-
-The following software is required to be installed on your system:
-
-* Node 8.x
-* Npm 3.x
-
-Type the following commands in the terminal to verify your node and npm versions
-
-  ```bash
-  node -v
-  npm -v
-  ```
-
-### Install
-
-Follow the following steps to get development environment running.
-
-* Clone _'react-starter'_ repository from GitHub
-
-  ```bash
-  git clone https://github.com/drminnaar/react-starter.git
-  ```
-
-   _OR USING SSH_
-
-  ```bash
-  git clone git@github.com:drminnaar/react-starter.git
-  ```
-
-* Install node modules
-
-   ```bash
-   cd react-starter
-   npm install
-   ```
-
-### Build
-
-#### Build Application
-
-dev | prod
-:---: | :---:
-npm run build:dev | npm run build:prod
-
-#### Build Application And Watch For Changes
-
-dev | prod
-:---: | :---:
-npm run build:dev:watch | npm run build:prod:watch
-
-#### Build Application With BundleAnalayzer Plugin Included
-
-dev | prod
-:---: | :---:
-npm run build:dev:bundleanalyze | npm run build:prod:bundleanalyze
-
-After running the above command, a browser window will open displaying an interactive graph resembling the following image:
-
-![bundle-analyzer](https://user-images.githubusercontent.com/33935506/36382812-eadf199e-1592-11e8-9681-cf5ccf67951f.png)
-
-### Run ESlint
-
-#### Lint Project Using ESLint
-
-  ```bash
-  npm run lint
-  ```
-
-#### Lint Project Using ESLint, and autofix
-
-  ```bash
-  npm run lint:fix
-  ```
-
-### Run
-
-#### Run Start
-
-This will run the _'serve:dev'_ npm task
-
-```bash
-npm start
-```
-
-#### Run Dev Server
-
-```bash
-npm run serve:dev
-```
-
-#### Run Dev Server With Dashboard
-
-```bash
-npm run serve:dev:dashboard
-```
-
-The above command will display a dashboard view in your console resembling the following image:
-
-![webpack-dashboard](https://user-images.githubusercontent.com/33935506/36382813-eb10b0a8-1592-11e8-9506-fd25db65a258.png)
-
-#### Run Prod Server
-
-This command will build application using production settings and start the application using _live-server_
-
-```bash
-npm run serve:prod
-```
-
----
-
-## Versioning
-
-I use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/drminnaar/react-starter/tags).
-
----
-
-## Authors
-
-* **Douglas Minnaar** - *Initial work* - [drminnaar](https://github.com/drminnaar)
-
-[react-starter]: https://github.com/drminnaar/react-starter
-[react-redux-starter]: https://github.com/drminnaar/react-redux-starter
-[react-clicker]: https://github.com/drminnaar/react-clicker
-[react-clock-basic]: https://github.com/drminnaar/react-clock-basic
-[react-timer-basic]: https://github.com/drminnaar/react-timer-basic
-[react-timer-advanced]: https://github.com/drminnaar/react-timer-advanced
-[react-masterminds]: https://github.com/drminnaar/react-masterminds
-[react-movie-cards]: https://github.com/drminnaar/react-movie-cards
-[react-calculator-standard]: https://github.com/drminnaar/react-calculator-standard
-[react-bitcoin-monitor]: https://github.com/drminnaar/react-bitcoin-monitor
-[react-weather-standard]: https://github.com/drminnaar/react-weather-standard
-[react-redux-quotlify]: https://github.com/drminnaar/react-redux-quotlify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
