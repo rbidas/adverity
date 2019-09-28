@@ -3,4 +3,4 @@ micronaut:
     name: backend
 
 datasource:
-  path: "src/main/resources/datasource.csv"
+  path: "src/test/resources/datasource.csv"
