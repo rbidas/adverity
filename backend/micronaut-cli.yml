@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: adverity.adetlv
+---
+testFramework: kotlintest
+sourceLanguage: kotlin
