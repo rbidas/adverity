@@ -21,8 +21,14 @@ class CsvDataSource(@Value("\${datasource.path}") val path: String) : DataSource
         val csvParser = CSVParser(reader, CSVFormat.EXCEL.withSkipHeaderRecord().withHeader(DATE, DATASOURCE, CAMPAIGN, CLICKS, IMPRESSIONS))
 
         val toReturn = mutableListOf<DataSourceDto>()
-        csvParser.mapTo(toReturn, { DataSourceDto(it.get(DATE), it.get(DATASOURCE), it.get(CAMPAIGN), it.get(CLICKS), it.get(IMPRESSIONS)) })
+        csvParser.mapTo(toReturn, { DataSourceDto(it.get(DATE), it.get(DATASOURCE), it.get(CAMPAIGN), convert(it.get(CLICKS)), convert(it.get(IMPRESSIONS))) })
 
         return toReturn
+    }
+
+    private fun convert(get: String?): Int {
+        if (get.isNullOrEmpty())
+            return 0;
+        return get.toInt()
     }
 }

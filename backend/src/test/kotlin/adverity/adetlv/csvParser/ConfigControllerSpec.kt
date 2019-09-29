@@ -18,8 +18,26 @@ object ConfigControllerSpec : Spek({
         it("test /config responds distinct datasource and campaign list") {
             val req = HttpRequest.GET<Any>("/config")
             val retrieve = client.toBlocking().retrieve(req, Argument.of(ConfigDto::class.java))
-            assertEquals(retrieve.datasource, mutableListOf("Facebook Ads", "Google Adwords", "Google Analytis"))
-            assertEquals(retrieve.campaign, mutableListOf("Like Ads", "Offer Campaigns - Conversions", "B2B - Leads", "GDN Prospecting - App - Prio 1 Offer", "GDN Prospecting - App - Prio 2 Offer"))
+            assertEquals(mutableListOf(
+                    "Facebook Ads",
+                    "Google Adwords",
+                    "Google Analytics"),    retrieve.datasource )
+            assertEquals(mutableListOf(
+                    "Like Ads",
+                    "Offer Campaigns - Conversions",
+                    "B2B - Leads",
+                    "GDN Prospecting - App - Prio 1 Offer",
+                    "GDN Prospecting - App - Prio 2 Offer",
+                    "GDN RMKT - Mobile - Prio 1 Offer",
+                    "GDN RMKT - Mobile - Prio 2 Offer",
+                    "New General Campaign - Africa - Desktop",
+                    "New General Campaign - Africa - Mobile",
+                    "New General Campaign - Arab - Desktop",
+                    "New General Campaign - Arab - Mobile",
+                    "GDN RMKT - Interstitials - Prio 1 Offer",
+                    "GDN RMKT - Interstitials - Prio 2 Offer",
+                    "New General Campaign - Asia - Desktop",
+                    "New General Campaign - Asia - Mobile"), retrieve.campaign)
         }
 
         afterGroup {

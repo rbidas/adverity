@@ -1,6 +1,9 @@
 micronaut:
+  server:
+    cors:
+      enabled: true
   application:
     name: backend
-
 datasource:
   path: "src/main/resources/datasource.csv"
+  #path: "../../../example_data/DAMKBAoDBwoDBAkOBAYFCw.csv"

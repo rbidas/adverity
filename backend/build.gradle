@@ -28,6 +28,7 @@ dependencies {
     implementation "io.micronaut:micronaut-runtime"
     implementation "io.micronaut:micronaut-http-server-netty"
     implementation "io.micronaut:micronaut-http-client"
+
     implementation "org.apache.commons:commons-csv:${apacheCommonCsv}"
     kapt platform("io.micronaut:micronaut-bom:$micronautVersion")
     kapt "io.micronaut:micronaut-inject-java"
@@ -43,6 +44,7 @@ dependencies {
     testImplementation "org.spekframework.spek2:spek-dsl-jvm:$spekVersion"
     testRuntimeOnly "org.spekframework.spek2:spek-runner-junit5:$spekVersion"
     testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+    testCompile "io.micronaut.test:micronaut-test-spock:1.1.1"
 }
 
 test.classpath += configurations.developmentOnly
