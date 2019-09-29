@@ -1,0 +1,9 @@
+.chart-panel{
+    width: 80%;
+}
+
+.chart-title {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+}

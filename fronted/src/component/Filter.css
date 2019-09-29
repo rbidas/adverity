@@ -1,0 +1,10 @@
+.filter-panel{
+    background-color: lightgray;
+    width: 20%;
+}
+
+.filter-title {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
