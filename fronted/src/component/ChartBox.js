@@ -67,43 +67,37 @@ export default class ChartBox extends React.Component {
 
         };
     }
+    getQueryParam(list, queryParamName){
+        return list.map(value => encodeURIComponent(queryParamName) + '=' + encodeURIComponent(value.name)).join("&");
+    }
 
     componentDidMount() {
         this.props.emitter.addListener('apply', (datasource, campaign) => {
-            let title = "";
-            title = this.extractTitle(datasource, campaign);
-            console.log(title);
-            this.setState({title: title});
-            let query = [];
-            datasource.forEach((value) => {
-                query.push(encodeURIComponent("datasource") + '=' + encodeURIComponent(value.name));
-            });
-            campaign.forEach((value) => {
-                query.push(encodeURIComponent("campaign") + '=' + encodeURIComponent(value.name));
-            });
+            const url = DATA_URL
+                + "?"
+                + this.getQueryParam(datasource, "datasource")
+                + "&"
+                + this.getQueryParam(campaign, "campaign");
 
-            fetch(DATA_URL + "?" + query.join("&"))
+            fetch(url)
                 .then(res => res.json())
                 .then(data => {
-                    let series = [];
-                    let clicks = [];
-                    let impressions = [];
-                    data.forEach((value, index, array) => {
-                        var parts = value.date.split('.');
-                        series.push(new Date(parts[2], parts[1], parts[0]).getTime());
-                        clicks.push(value.clicks);
-                        impressions.push(value.impressions)
-                    });
-                    this.setState({options: {xaxis: {categories: series}}});
+                    const chartData = this.convertResponseToChartData(data);
                     this.setState({
+                        title: this.extractTitle(datasource, campaign),
+                        options: {
+                            xaxis: {
+                                categories: chartData.series
+                            }
+                        },
                         series: [
                             {
                                 name: "Clicks",
-                                data: clicks
+                                data: chartData.clicks
                             },
                             {
                                 name: "Impressions",
-                                data: impressions
+                                data: chartData.impressions
                             }
                         ]
                     });
@@ -111,27 +105,20 @@ export default class ChartBox extends React.Component {
         })
     }
 
+    convertResponseToChartData(data) {
+        return data.reduce((result, item, index, array) => {
+            const parts = item.date.split('.');
+            result.series.push(new Date(parts[2], parts[1], parts[0]).getTime());
+            result.clicks.push(item.clicks);
+            result.impressions.push(item.impressions);
+            return result;
+        }, {series: [], clicks: [], impressions: []});
+    }
+
     extractTitle(datasource, campaign) {
-        let title = "";
-        if (datasource.length === 0)
-            title = title + "All Datasource";
-        else {
-            let datasources = [];
-            datasource.forEach((value) => {
-                datasources.push("\"" + value.name + "\"");
-                title = "Datasource " + datasources.join(" and ")
-            });
-        }
+        let title = datasource.length === 0 ?  "All Datasources" : "Datasource " + datasource.map(value => "\"" + value.name + "\"").join(" and ");
         title = title + ";";
-        if (campaign.length === 0)
-            title = title + "All Campaigns";
-        else {
-            let campaigns = [];
-            campaign.forEach((value) => {
-                campaigns.push("\"" + value.name + "\"");
-                title = title + "Campaign " + campaigns.join(" and ")
-            });
-        }
+        title = title + (campaign.length === 0 ?  "All Campaigns" : "Campaign " + campaign.map(value => "\"" + value.name + "\"").join(" and "));
         return title;
     }
 

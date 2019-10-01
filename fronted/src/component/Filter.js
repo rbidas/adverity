@@ -28,13 +28,7 @@ export default class Filter extends React.Component {
             });
     }
 
-    convertToMultiSelectOptions = arrayToConvert => {
-        const options = [];
-        arrayToConvert.forEach((value, index, array) => {
-            options.push({name: value, id: index});
-        });
-        return options;
-    };
+    convertToMultiSelectOptions = arrayToConvert => arrayToConvert.map((value, index) => ({name: value, id: index}));
 
     apply = () => {
         this.props.emitter.emit('apply',  this.state.datasourceSelected, this.state.campaignSelected)
