@@ -12,7 +12,6 @@ class ConfigController(@Inject var configService: ConfigService) {
     @Produces(MediaType.APPLICATION_JSON)
     fun index(): ConfigDto {
 
-        val dto = ConfigDto(configService.getDataSource(), configService.getCampaign())
-        return dto
+        return configService.getConfig();
     }
 }

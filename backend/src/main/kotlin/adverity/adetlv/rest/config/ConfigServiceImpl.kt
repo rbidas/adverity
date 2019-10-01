@@ -14,4 +14,11 @@ class ConfigServiceImpl(@Inject var datasource: CsvDataSource) : ConfigService {
     override fun getDataSource(): Collection<String> {
         return datasource.data().stream().map { it -> it.datasource }.distinct().collect(Collectors.toList())
     }
+
+    override fun getConfig(): ConfigDto {
+        val data = datasource.data()
+        return ConfigDto(data.stream().map { it.datasource }.distinct().collect(Collectors.toList()),
+                data.stream().map { it.campaign }.distinct().collect(Collectors.toList()))
+    }
+
 }
